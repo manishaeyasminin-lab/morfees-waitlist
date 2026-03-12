@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5f5f0" />
+  <title>morfees - your career companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+
+  <nav>
+    <a href="#" class="logo-mark" aria-label="morfees home">
+      <img src="assets/logo.svg" width="26" height="26" alt="" class="logo-icon" />
+      <span class="logo-name">morfees</span>
+    </a>
+    <button class="nav-btn" type="button" onclick="openModal()">Join the waitlist</button>
+  </nav>
+
+  <div class="modal-overlay" id="modalOverlay" onclick="overlayClick(event)" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" onclick="closeModal()" aria-label="Close dialog">
+        <img src="assets/icon-close.svg" width="12" height="12" alt="" class="icon-img" />
+      </button>
+      <div class="logo-mark modal-logo">
+        <img src="assets/logo.svg" width="22" height="22" alt="" class="logo-icon" />
+        <span class="logo-name">morfees</span>
+      </div>
+      <h2 id="modalTitle">Join the <em>waitlist.</em></h2>
+      <p class="modal-sub" id="modalSub">Be first when we launch. Pick how you'd like us to hear from you.</p>
+      <div id="mBlock"></div>
+    </div>
+  </div>
+
+  <div class="sheet-overlay" id="sheetOverlay" onclick="sheetOverlayClick(event)" aria-hidden="true">
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="logo-mark sheet-logo">
+        <img src="assets/logo.svg" width="22" height="22" alt="" class="logo-icon" />
+        <span class="logo-name">morfees</span>
+      </div>
+      <h3 id="sheetTitle">Join the <em>waitlist.</em></h3>
+      <p class="sheet-sub" id="sheetSub">Pick how you'd like us to hear from you.</p>
+      <div id="sBlock"></div>
+    </div>
+  </div>
+
+  <main>
+    <h1>Your career path,<br />without the <em>guesswork.</em></h1>
+    <p class="subheadline">We figure out what career fits you, tell you exactly what's missing, and walk you through it so you always know your next step.</p>
+    <div class="waitlist-block mobile-waitlist">
+      <button class="main-cta" type="button" onclick="openModal()">Join the waitlist</button>
+      <p class="signup-hint">Free &bull; No spam &bull; Takes 5 seconds</p>
+    </div>
+    <div class="social-proof">
+      <div class="early-badge">
+        <span class="early-dot"></span>
+        EARLY ACCESS - LIMITED SPOTS
+      </div>
+      <div class="avatar-row">
+        <div class="avatars" aria-hidden="true">
+          <div class="avatar av1">AK</div>
+          <div class="avatar av2">JL</div>
+          <div class="avatar av3">SR</div>
+          <div class="avatar av4">MP</div>
+        </div>
+        <p class="avatar-text"><strong>100+ students</strong> already joined</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="#" class="logo-mark" aria-label="morfees home">
+      <img src="assets/logo.svg" width="20" height="20" alt="" class="logo-icon" style="opacity: 0.4" />
+      <span class="logo-name" style="font-size: 0.85rem; opacity: 0.4">morfees</span>
+    </a>
+    <div class="footer-contact">
+      <input type="text" id="contactInput" placeholder="Have anything in mind?" aria-label="Contact message" />
+      <button type="button" onclick="handleContact()" title="Send" aria-label="Send email">
+        <img src="assets/icon-arrow.svg" width="13" height="13" alt="" class="icon-img" />
+      </button>
+    </div>
+    <div class="footer-legal">
+      <span>&copy; 2026 MORFEES PRIVATE LIMITED. All rights reserved.</span>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:hello@morfees.com" style="color: var(--violet); opacity: 0.8;">hello@morfees.com</a>
+    </div>
+  </footer>
+</body>
+</html>

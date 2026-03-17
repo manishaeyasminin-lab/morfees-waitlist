@@ -228,12 +228,18 @@ async function handleSignupSubmit(id) {
 
   try {
     await saveWaitlistContact(mode === "wa" ? "+91" + value : value, mode === "wa" ? "whatsapp" : "email");
-// ✅ GOOGLE ANALYTICS EVENT (ADD THIS)
-  if (typeof gtag === "function") {
-    gtag('event', 'signup_success', {
-      method: mode === "wa" ? "whatsapp" : "email"
-    });
-  }
+
+    // ✅ GOOGLE ANALYTICS EVENT (ADD THIS)
+  if (typeof gtag === 'function') {
+  const params = new URLSearchParams(window.location.search);
+
+  gtag('event', 'signup_success', {
+    method: mode === "wa" ? "whatsapp" : "email",
+    source: params.get('utm_source'),
+    medium: params.get('utm_medium'),
+    campaign: params.get('utm_campaign')
+  });
+}
     
     console.log("Waitlist join saved", { id: id, contactType: mode });
     setContextCopy(id, "You're <em>on the waitlist.</em>", config.successMessage);

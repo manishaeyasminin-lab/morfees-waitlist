@@ -231,13 +231,8 @@ async function handleSignupSubmit(id) {
 
     // ✅ GOOGLE ANALYTICS EVENT (ADD THIS)
   if (typeof gtag === 'function') {
-  const params = new URLSearchParams(window.location.search);
-
   gtag('event', 'signup_success', {
-    method: mode === "wa" ? "whatsapp" : "email",
-    source: params.get('utm_source'),
-    medium: params.get('utm_medium'),
-    campaign: params.get('utm_campaign')
+    method: mode === "wa" ? "whatsapp" : "email"
   });
 }
     

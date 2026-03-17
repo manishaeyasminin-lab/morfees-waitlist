@@ -421,3 +421,12 @@ function closeSignupSuccess(id) {
 
   resetSignupState(id);
 });
+
+
+document.querySelectorAll("input").forEach(input => {
+  input.addEventListener("focus", () => {
+    if (typeof gtag === "function") {
+      gtag('event', 'form_start');
+    }
+  });
+});

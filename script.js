@@ -423,10 +423,12 @@ function closeSignupSuccess(id) {
 });
 
 
-document.querySelectorAll("input").forEach(input => {
-  input.addEventListener("focus", () => {
-    if (typeof gtag === "function") {
-      gtag('event', 'form_start');
-    }
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("input").forEach(input => {
+    input.addEventListener("focus", () => {
+      if (typeof gtag === "function") {
+        gtag('event', 'form_start');
+      }
+    });
   });
 });

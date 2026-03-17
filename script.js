@@ -79,7 +79,15 @@ function showError(id, message) {
   document.getElementById(id + "Row").classList.add("error");
   document.getElementById(id + "Error").textContent = message;
   document.getElementById(id + "Error").classList.add("show");
+
+  // ✅ GOOGLE ANALYTICS ERROR TRACKING
+  if (typeof gtag === "function") {
+    gtag('event', 'form_error', {
+      message: message
+    });
+  }
 }
+
 
 function setContextCopy(id, titleHTML, subText) {
   var context = signupContexts[id];
@@ -220,7 +228,13 @@ async function handleSignupSubmit(id) {
 
   try {
     await saveWaitlistContact(mode === "wa" ? "+91" + value : value, mode === "wa" ? "whatsapp" : "email");
-
+// ✅ GOOGLE ANALYTICS EVENT (ADD THIS)
+  if (typeof gtag === "function") {
+    gtag('event', 'signup_success', {
+      method: mode === "wa" ? "whatsapp" : "email"
+    });
+  }
+    
     console.log("Waitlist join saved", { id: id, contactType: mode });
     setContextCopy(id, "You're <em>on the waitlist.</em>", config.successMessage);
     form.style.display = "none";
